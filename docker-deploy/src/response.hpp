@@ -52,9 +52,9 @@ class Response {
     }
     content_length = general_parse(msgStr.substr(0, header_size + 1),
                                    "Content-Length", 16, "\r\n");
-    std::cout << "-------看看header----------" << std::endl;
-    std::cout << msgStr.substr(0, header_size) << std::endl;
-    std::cout << "----------------------------\r\n";
+    // std::cout << "-------看看header----------" << std::endl;
+    // std::cout << msgStr.substr(0, header_size) << std::endl;
+    // std::cout << "----------------------------\r\n";
     if (content_length != "") {
       content_size = std::stoul(content_length);
       this->msg.resize(content_size + header_size);
