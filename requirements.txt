@@ -1,0 +1,52 @@
+Requirements	                                Did you implement this requirement?	        Extra note to TA
+
+1.Your proxy should support required methods	Yes	
+
+1.1 support GET	                                Yes	
+
+1.2 support POST	                            Yes	
+
+1.3 support CONNECT	                            Yes
+
+2. You should cache appropriate responses	    Yes	
+
+2.1 You should follow rules of expiration time	Yes	
+
+2.2 You should follow rules of re-validation	Yes	
+
+2.3 Please specify your cache policy 
+(e.g. cache size, replacement policy, 
+when to clean expired reponse) 	                Yes	                                        We set up a default cache size as 10000 records, and if the recrods stored to this amout, the cache object would clear the staled records at once
+
+3 You should utilize concurrency	            Yes	
+
+3.1 Do you spawn a thread/process 
+to handle a request?	                        Yes	
+
+3.2 Did do you appropriately handle necessary 
+synchronization for your cache (note a simple 
+strategy like "using a mutex to lock to protect 
+the entire cache for every operation" might not 
+be the prefect answer from our perspective)	    Yes	                                        We utilize read-write lock in our cache to enable more efficient concurrency operations, to be more detatield, we add read block to operations related to looking up, whiel add write block to opeerations such as insertion and deletion.
+
+4 You should have a log file to record 
+required information	                        Yes
+
+5 You should organize your code in good 
+C++ style. 	                                    Yes	
+
+6.Your code should be robust to external 
+failures. (i.e. What failures did you handle 
+in your code? how do you handle them? You 
+can answer these in your danger log.)	        Yes	                                        We cover the faileures during each steps of eatablishing a socket, connecting to a socket, sending and receiving messages. We checked the status code of these operations, and whenever we find it is non-positive, we would terminate current thread hadling this request and record the error in our log file.
+
+7.You should know the exception guarantees 
+you make (Please specify them 
+(within your danger log).	                    Yes	
+
+8.You should setup docker for submission, 
+per the requirement	                            Yes	
+
+9.You should provide testcases by the requirment	Yes	
+
+Any extra tests you would like to mention?		
