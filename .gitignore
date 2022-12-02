@@ -1,0 +1,3 @@
+docker-deploy/src/*.o
+docker-deploy/src/*.log
+docker-deploy/src/runproxy
