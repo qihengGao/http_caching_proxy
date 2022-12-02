@@ -8,19 +8,3 @@ services:
     ports:
       - "12345:12345"
     tty: true
-# version: '2'
-
-# services:
-#   proxy:
-#     build: ./src
-#     command: bash -c "./startproxy.sh" 
-#     volumes:
-#       # - data-volume:/var/log/erss
-#       - ./src:/code 
-#     ports:
-#       - "12345:12345" 
-#     tty: true
-
-# This volume will be used to map the cache. 
-# volumes:
-#   data-volume:
