@@ -624,9 +624,6 @@ void Proxy::recordWillExpired(Request* request, Response& response) {
   std::string res;
   if (response.hasMaxAge()) {
     expiretime = (time_t)((response.getMaxAge()) + (response.getDate()).now);
-    // std::cout << response.getMaxAge()
-    //           << " :date: " << response.getDate().getPrintTime() <<
-    //           std::endl;
     char* dt = ctime(&expiretime);
     std::string tem(dt);
     res = tem.substr(0, tem.size() - 1);
